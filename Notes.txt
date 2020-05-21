@@ -11,3 +11,16 @@ Defend from
    -write clean code
    -unit tests
 			
+
+Defining Unit test cases
+ -valid inputs
+ -data entry rules
+ -edge cases
+ -invalid inputs
+ -possible exceptions
+ -empty and null 
+
+Methods
+ -Guard against invalid arguments
+ -Return Predicable results
+ -Only throw expected exceptions
