@@ -1,0 +1,13 @@
+Defend from
+ -Incorrect entry
+   -add user input validation
+ -invalid operations
+   -check arguments
+   -unit test operations
+ -system mishaps
+   -add checks
+   -manage exceptions
+ -future developers
+   -write clean code
+   -unit tests
+			
