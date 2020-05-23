@@ -31,23 +31,14 @@ namespace APM.SL
     /// <param name="priceInput">Suggested price in dollars and cents (from user input as string)</param>
     /// <returns>Resulting profit margin</returns>
     public decimal CalculateMargin(string costInput, string priceInput)
-    { 
-      if (string.IsNullOrWhiteSpace(costInput))
-        throw new ArgumentException("Please enter the cost", "cost");
-      if (string.IsNullOrWhiteSpace(priceInput))
-        throw new ArgumentException("Please enter the price", "price");
-      
-      var success = decimal.TryParse(costInput, out var cost);
-      if (!success || cost < 0)
-      {
-        throw new ArgumentException("The cost must be a number 0 or greater", "cost");
-      }
-      
-      success = decimal.TryParse(priceInput, out var price);
-      if (!success || price <= 0)
-      {
-        throw new ArgumentException("The price must be a number greater than 0", "price"); 
-      }
+    {
+      Guard.ThrowIfNullOrEmpty(costInput,"Please enter the cost", "cost");
+      Guard.ThrowIfNullOrEmpty(priceInput,"Please enter the price", "price");
+
+      var cost = Guard.ThrowIfNotPositiveDecimal(costInput,
+        "The cost must be a number 0 or greater", "cost");   
+      var price = Guard.ThrowIfNotPositiveNonZeroDecimal(priceInput,
+        "The price must be a number greater than 0", "price");
 
       return Math.Round((price - cost) / price * 100M);
     }
@@ -62,9 +53,9 @@ namespace APM.SL
     {
       if (price <= 0) throw new ArgumentException("Please enter the price");
 
-      if (discount is null) throw new ArgumentException("Please specify a discount");
-
-      var discountAmount = price * (discount.PercentOff / 100);
+      if (discount?.PercentOff is null) throw new ArgumentException("Please specify a discount");
+      
+      var discountAmount = price * (discount.PercentOff.Value / 100);
 
       return discountAmount;
     }
@@ -86,8 +77,7 @@ namespace APM.SL
 
       // Validate arguments
       // Calls a method in the data layer to save the data...
-
-      return true;
+       return true;
     }
 
     /// <summary>

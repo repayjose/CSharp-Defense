@@ -8,7 +8,7 @@ namespace APM.SL
     public int DiscountId { get; private set; }
     public string DiscountName { get; set; }
 
-    public decimal PercentOff { get; set; }
+    public decimal? PercentOff { get; set; }
 
     // ... Discount details
 

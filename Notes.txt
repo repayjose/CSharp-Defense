@@ -29,3 +29,32 @@ Methods
  -Guard against invalid arguments
  -Return Predicable results
  -Only throw expected exceptions
+
+Guard Statements
+- Helper methods
+- Generic guard class
+- Overloaded methods
+
+Returning Multiple values from method
+-ref/out
+-object
+-tuple
+
+CSQS
+-query and command methods
+-voids 
+	-use exceptions
+
+
+Appropriate Return types for methods
+- Return values for calculations 
+	-use exceptions to give caller information
+- Return nullable types if ex.message is not needed and value can be null
+- Use ref/out if need addtional information and you cannot change method signature
+- Return tuple if you need to return multiple values
+- Return result class
+-Return objects 
+	-use exceptions to give caller information
+-Return nullable types
+-Void
+	-use exceptions for additional information to caller
