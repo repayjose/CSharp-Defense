@@ -12,6 +12,11 @@ Defend from
    -unit tests
 			
 
+Improve code comprehension
+ -single responsibility principle
+ -separation of concerns
+ -DRY
+
 Defining Unit test cases
  -valid inputs
  -data entry rules
